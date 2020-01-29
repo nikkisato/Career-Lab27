@@ -15,6 +15,7 @@ export default class Madlib extends Component{
   handleSubmit = event => {
     event.preventDefault();
     this.toggleResult();
+    console.log('after submit', this.state);
   }
 
   handleChange = ({ target }) => {
