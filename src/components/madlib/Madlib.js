@@ -5,7 +5,8 @@ import Header from '../madlib/Header/Header';
 
 export default class Madlib extends Component{
   state = {
-    showResult: false
+    showResult: false,
+    words: []
   }
 
   toggleResult = () =>
@@ -16,12 +17,17 @@ export default class Madlib extends Component{
     this.toggleResult();
   }
 
+  handleChange = ({ target }) => {
+    this.setState({ words: target.value }, () => {console.log('after this.setState', this.state.words);
+    });
+  };
+
   render() {
     const { showResult } = this.state;
     return (
       <>
         <Header />
-        {!showResult && <Form onSubmit={this.handleSubmit} />}
+        {!showResult && <Form onChange={this.handleChange} onSubmit={this.handleSubmit} />}
         {showResult && <Result words={[]} closeResult={this.toggleResult} />}
       </>
     );
