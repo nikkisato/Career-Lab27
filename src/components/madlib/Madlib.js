@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Form from './Form';
 import Result from './Result';
+import Header from '../madlib/Header/Header';
 
 export default class Madlib extends Component{
   state = {
@@ -19,6 +20,7 @@ export default class Madlib extends Component{
     const { showResult } = this.state;
     return (
       <>
+        <Header />
         {!showResult && <Form onSubmit={this.handleSubmit} />}
         {showResult && <Result words={[]} closeResult={this.toggleResult} />}
       </>

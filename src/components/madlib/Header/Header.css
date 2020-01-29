@@ -1,0 +1,17 @@
+Header {
+    text-align:center;
+}
+
+
+
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    
+}
+
+nav a {
+    padding: 10px;
+    text-decoration-style: none;
+}
