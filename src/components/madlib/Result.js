@@ -15,5 +15,3 @@ Result.propTypes = {
 };
 
 export default Result;
-
-//add clear Button here?

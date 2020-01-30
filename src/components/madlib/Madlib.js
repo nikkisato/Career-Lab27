@@ -7,6 +7,7 @@ export default class Madlib extends Component{
   state = {
     showResult: false,
     words: [],
+    0: '',
     1: '',
     2: '',
     3: '',
@@ -18,7 +19,6 @@ export default class Madlib extends Component{
     9: '',
     10: '',
     11: '',
-    12: '',
   }
  
 
@@ -26,11 +26,9 @@ export default class Madlib extends Component{
 
   handleSubmit = event => {
     event.preventDefault();
-    // const { state } = this.state;
-    this.setState(state => ({ words: [state['1', '2', '3']] }));
     this.toggleResult();
-
-    console.log('after submit', this.state);
+    this.setState(state => ({ words: state.value }));
+    console.log(this.state);
   }
 
   handleChange = ({ target }) => {
