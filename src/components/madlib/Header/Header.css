@@ -2,8 +2,9 @@ Header {
     text-align:center;
     background-color: blue;
     color: white;
-    position: absolute;
-top: 0;
+    margin:0;
+
+
 width: 100%;
 height: 100px;
 

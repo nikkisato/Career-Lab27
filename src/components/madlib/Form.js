@@ -27,6 +27,7 @@ const Form = ({ onSubmit, onChange, name }) => (
         placeholder="verb, past tense"
       />
       <input type="text" onChange={onChange} name="11" placeholder="adjective" />
+      <br></br>
       <button>Create Madlib</button>
     </div>
   </form>
