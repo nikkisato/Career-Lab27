@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Form from './Form';
-import Result from './Result';
+import Form from './Forms/Form';
+import Result from './Results/Result';
 import Header from '../madlib/Header/Header';
 import Footer from '../madlib/Footer/Footer';
 import styles from '../madlib/Body/Body.css';
