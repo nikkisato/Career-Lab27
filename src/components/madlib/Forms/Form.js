@@ -29,6 +29,8 @@ const Form = ({ onSubmit, onChange, name }) => (
       <input type="text" onChange={onChange} name="11" placeholder="adjective" />
       <br></br>
       <button>Create Madlib</button>
+      <button type='reset' value='Clear'>Clear</button>
+
     </div>
   </form>
 );
