@@ -6,25 +6,41 @@ import Header from '../madlib/Header/Header';
 export default class Madlib extends Component{
   state = {
     showResult: false,
-    words: []
+    words: [],
+    1: '',
+    2: '',
+    3: '',
+    4: '',
+    5: '',
+    6: '',
+    7: '',
+    8: '',
+    9: '',
+    10: '',
+    11: '',
+    12: '',
   }
+ 
 
-  toggleResult = () =>
-    this.setState(state => ({ ...state, showResult: !state.showResult }));
+  toggleResult = () => this.setState(state => ({ ...state, showResult: !state.showResult }));
 
   handleSubmit = event => {
     event.preventDefault();
+    // const { state } = this.state;
+    this.setState(state => ({ words: [state['1', '2', '3']] }));
     this.toggleResult();
+
     console.log('after submit', this.state);
   }
 
   handleChange = ({ target }) => {
-    this.setState({ words: target.value }, () => {console.log('after this.setState', this.state.words);
+    this.setState({ [target.name]: target.value }, () => {console.log(target.name, this.state[target.name]);
     });
   };
 
   render() {
-    const { showResult } = this.state;
+
+    const { showResult, words } = this.state;
     return (
       <>
         <Header />
