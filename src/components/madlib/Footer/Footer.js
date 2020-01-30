@@ -1,21 +1,14 @@
 import React, { Component } from 'react';
-import styles from './Header.css';
+import styles from './Footer.css';
 
-export default class Header extends Component {
+export default class Footer extends Component {
   render() {
     return (
-      <header className={styles.Header}>
-        <nav>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Documentation</a> </li>
-          </ul>
-        </nav>
+      <footer className={styles.Footer}>
         <section>
-          <h1>MadLib Styles</h1>
+          <h3>© By Nikki Sato 2020</h3>
         </section>
-      </header>
+      </footer>
     );
   }
 }

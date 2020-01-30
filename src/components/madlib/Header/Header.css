@@ -1,9 +1,12 @@
 Header {
     text-align:center;
+    background-color: blue;
+    color: white;
+    position: absolute;
+top: 0;
+width: 100%;
+z-index: 999;
 }
-
-
-
 
 nav ul {
     display: flex;
@@ -14,4 +17,5 @@ nav ul {
 nav a {
     padding: 10px;
     text-decoration-style: none;
+    color: white
 }
