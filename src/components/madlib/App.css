@@ -1,13 +1,12 @@
-div{
-    overflow-x: hidden;
-margin:0;
-padding:0;
-background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+section {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
 }
 
 .madlibs {
-width: 400px;
-text-align: center;
-display: flex; 
-
+  width: 400px;
+  text-align: center;
+  display: flex;
 }

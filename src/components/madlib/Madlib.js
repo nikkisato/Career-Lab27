@@ -3,7 +3,9 @@ import Form from './Form';
 import Result from './Result';
 import Header from '../madlib/Header/Header';
 import Footer from '../madlib/Footer/Footer';
-import Body from '../madlib/Body.css';
+// import styles from '../madlib/Body.css';
+// import Body from '../madlib/Body.css';
+
 
 export default class Madlib extends Component{
   state = {
@@ -44,10 +46,9 @@ export default class Madlib extends Component{
     return (
       <>
         <Header />
-        <Body>
-          {!showResult && <Form onChange={this.handleChange} onSubmit={this.handleSubmit} />}
-          {showResult && <Result words={[]} closeResult={this.toggleResult} />}
-        </Body>
+        {!showResult && <Form onChange={this.handleChange} onSubmit={this.handleSubmit} />}
+        {showResult && <Result words={[]} closeResult={this.toggleResult} />}
+       
         <Footer />
       </>
     );

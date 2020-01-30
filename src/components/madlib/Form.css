@@ -8,11 +8,9 @@ form {
  justify-content: center;
  text-align:Center;
 
-
     input{ 
         width: 200px;
         border: solid 1px black;
-
         padding: 5px;
         margin: 5px;
     }
