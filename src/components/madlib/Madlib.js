@@ -11,43 +11,77 @@ export default class Madlib extends Component{
   state = {
     showResult: false,
     words: [],
-    0: '',
-    1: '',
-    2: '',
-    3: '',
-    4: '',
-    5: '',
-    6: '',
-    7: '',
-    8: '',
-    9: '',
-    10: '',
-    11: '',
+    inputs: {}
+    // 0: '',
+    // 1: '',
+    // 2: '',
+    // 3: '',
+    // 4: '',
+    // 5: '',
+    // 6: '',
+    // 7: '',
+    // 8: '',
+    // 9: '',
+    // 10: '',
+    // 11: '',
+    
   }
  
+
+
+  createWordsArray = () => {
+    this.setState(prevState => (({
+
+      words: [
+        prevState.inputs['0'],
+        prevState.inputs['1'],
+        prevState.inputs['2'],
+        prevState.inputs['3'],
+        prevState.inputs['4'],
+        prevState.inputs['5'],
+        prevState.inputs['6'],
+        prevState.inputs['7'],
+        prevState.inputs['8'],
+        prevState.inputs['9'],
+        prevState.inputs['10'],
+        prevState.inputs['11'],
+      ]
+    })));
+  
+  }
 
   toggleResult = () => this.setState(state => ({ ...state, showResult: !state.showResult }));
 
   handleSubmit = event => {
     event.preventDefault();
+    this.createWordsArray();
     this.toggleResult();
-    this.setState(state => ({ words: state.value }));
-    console.log(this.state);
   }
 
+  // handleChange = ({ target }) => {
+  //   this.setState({ [target.name]: target.value }, 
+  //     () => {console.log(target.name, this.state[target.name]);
+  //     });
+  // };
+
   handleChange = ({ target }) => {
-    this.setState({ [target.name]: target.value }, () => {console.log(target.name, this.state[target.name]);
-    });
-  };
+    this.setState(prevState => ({
+      ...prevState, inputs: {
+        ...prevState.inputs, [target.name]: target.value 
+      }
+    })
+      
+    );
+  }
+
 
   render() {
 
-    const { showResult, words } = this.state;
+    const { showResult } = this.state;
     return (
       <>
-        <Header />
         {!showResult && <Form onChange={this.handleChange} onSubmit={this.handleSubmit} />}
-        {showResult && <Result words={[]} closeResult={this.toggleResult} />}
+        {showResult && <Result words={this.state.words} closeResult={this.toggleResult} />}
        
         <Footer />
       </>
