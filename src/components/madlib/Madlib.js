@@ -5,32 +5,15 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import styles from '../madlib/Body/Body.css';
 
-
-export default class Madlib extends Component{
+export default class Madlib extends Component {
   state = {
     showResult: false,
     words: [],
     inputs: {}
-    // 0: '',
-    // 1: '',
-    // 2: '',
-    // 3: '',
-    // 4: '',
-    // 5: '',
-    // 6: '',
-    // 7: '',
-    // 8: '',
-    // 9: '',
-    // 10: '',
-    // 11: '',
-    
-  }
- 
-
+  };
 
   createWordsArray = () => {
-    this.setState(prevState => (({
-
+    this.setState(prevState => ({
       words: [
         prevState.inputs['0'],
         prevState.inputs['1'],
@@ -43,46 +26,62 @@ export default class Madlib extends Component{
         prevState.inputs['8'],
         prevState.inputs['9'],
         prevState.inputs['10'],
-        prevState.inputs['11'],
+        prevState.inputs['11']
       ]
-    })));
-  
-  }
+    }));
+  };
 
-  toggleResult = () => this.setState(state => ({ ...state, showResult: !state.showResult }));
+  toggleResult = () =>
+    this.setState(state => ({ ...state, showResult: !state.showResult }));
 
   handleSubmit = event => {
     event.preventDefault();
     this.createWordsArray();
     this.toggleResult();
-  }
-
-  // handleChange = ({ target }) => {
-  //   this.setState({ [target.name]: target.value }, 
-  //     () => {console.log(target.name, this.state[target.name]);
-  //     });
-  // };
+  };
 
   handleChange = ({ target }) => {
     this.setState(prevState => ({
-      ...prevState, inputs: {
-        ...prevState.inputs, [target.name]: target.value 
+      ...prevState,
+      inputs: {
+        ...prevState.inputs,
+        [target.name]: target.value
       }
-    })
-      
-    );
+    }));
+  };
+
+  handleReset = () => {
+    this.setState(prevState => ({
+      ...prevState, 
+      inputs: {
+        '0': '',
+        '1': '',
+        '2': '',
+        '3': '',
+        '4': '',
+        '5': '',
+        '6': '',
+        '7': '',
+        '8': '',
+        '9': '',
+        '10': '',
+        '11': ''
+      }
+    }));
   }
 
-
   render() {
-
     const { showResult } = this.state;
     return (
       <>
         <Header />
-        <div className={styles.section} >
-          {!showResult && <Form onChange={this.handleChange} onSubmit={this.handleSubmit} />}
-          {showResult && <Result words={this.state.words} closeResult={this.toggleResult} />}
+        <div className={styles.section}>
+          {!showResult && (
+            <Form onChange={this.handleChange} onReset={this.handleReset} onSubmit={this.handleSubmit} inputs={this.state.inputs} />
+          )}
+          {showResult && (
+            <Result words={this.state.words} closeResult={this.toggleResult} />
+          )}
         </div>
         <Footer />
       </>
